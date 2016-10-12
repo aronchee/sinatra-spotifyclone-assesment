@@ -1,4 +1,5 @@
 get '/' do
-  erb :"static/index"
+  
+  erb :"static/login"
 
 end

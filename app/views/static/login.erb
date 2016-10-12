@@ -1,0 +1,23 @@
+<center>
+<h1>Spotify</h1>
+
+<p>Welcome to Spotify</p>
+<p>where you can listen your song on the go</p>
+
+<p>Let's log in into your account now</p>
+<form action="/login" method="post">
+	<input type="text" placeholder="Username" name="username"><br>  
+	<input type="password" placeholder="Password" name="password"></br>
+	<input type="submit" value="Login">
+</form>
+
+<p>Do not have account? Time to sign up for free here!</p>
+<form action="/signup" method="post">
+	<input type="text" placeholder="Email" name="user[email]"><br>
+	<input type="username" placeholder="Username" name="user[username]"><br>
+	<input type="password" placeholder="Password" name="user[password]"><br>
+	<input type="name" placeholder="Name" name="user[name]"><br>
+	<input type="submit" value="Signup">
+</form>
+<p><%= @msg %></p>
+</center>
