@@ -1,4 +1,16 @@
 <center>
 <h1>Welcome to WebSpotify, <%=current_user.name%>!</h1>
 <p>This is your WebSpotify-nize Profile</p>
+
+<form action="/edit" method="get">
+	<input type="submit" value="Edit Account">
+</form>
+
+<form action="/logout" method="get">
+	<input type="submit" value="Logout">
+</form>
+
+<form action="/users/:id/delete" method="get">
+	<input type="submit" value="Delete Account">
+</form>
 </center>

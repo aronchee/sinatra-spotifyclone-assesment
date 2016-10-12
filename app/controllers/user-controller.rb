@@ -7,9 +7,10 @@ post '/login' do
 			login @user
 		# byebug
 			erb :"static/home"
+			redirect '/home'
 		# @msg1 = "You have logged in"
 		else
-			@msg = "Wrong username or password!"
+			@msg = "Wrong username or password! Are you sure you are human?"
 			erb :"static/login"
 		end
 end
@@ -25,4 +26,20 @@ post '/signup' do
 		# when user enter invalid character
 	end 
 	erb :"static/login"
+end
+
+# get '/users/:id/edit' do
+
+# end
+
+get '/logout' do
+	session[:user_id] = nil
+	redirect '/'
+end
+
+get '/users/:id/delete' do
+	# @user = User.where('id !=?', current_user.id) #fail to be used
+	@user = current_user
+	@user.delete
+	redirect '/'
 end

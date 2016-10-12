@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	validates :password, length: {in: 6..20}
 	
+	has_many :songs
+	has_many :playlists
+
 end
