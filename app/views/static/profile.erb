@@ -1,0 +1,30 @@
+<center>
+
+<h1>Welcome to WebSpotify, <%=current_user.name%>!</h1>
+<p>So, what do you want to do?</p>
+
+<form action="/create" method="get">
+	<input type="submit" value="Create New Playlist">
+</form>
+
+<form action="/index" method="get">
+	<input type="submit" value="View Your Playlist">
+</form>
+
+<form action="" method="">
+	<input type="submit" value="View Other Users">
+</form>
+
+<form action="" method="">
+	<input type="submit" value="Edit Account">
+</form>
+
+<form action="/logout" method="get">
+	<input type="submit" value="Logout">
+</form>
+
+<form action="/users/:id/delete" method="get">
+	<input type="submit" value="Delete Account">
+</form>
+
+</center>

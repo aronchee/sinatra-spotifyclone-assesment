@@ -1,13 +1,17 @@
 enable :sessions
 
+get '/users/:id/profile' do
+	erb :"static/profile"
+end
+
 post '/login' do
 		@user = User.find_by(username: params[:username])
 	 # byebug
 		if @user.try(:authenticate, params[:password]) 
 			login @user
 		# byebug
-			erb :"static/home"
-			redirect '/home'
+			# erb :"static/profile"
+			redirect '/users/:id/profile'
 		# @msg1 = "You have logged in"
 		else
 			@msg = "Wrong username or password! Are you sure you are human?"
@@ -38,7 +42,7 @@ get '/logout' do
 end
 
 get '/users/:id/delete' do
-	# @user = User.where('id !=?', current_user.id) #fail to be used
+	# @user = User.where('id !=?', current_user.id)
 	@user = current_user
 	@user.delete
 	redirect '/'

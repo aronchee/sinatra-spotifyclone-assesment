@@ -1,0 +1,12 @@
+<p>Update Playlist</p>
+
+<form action="/playlists/<%=@playlist.id%>" method="post">
+	<input type="hidden" name="_method" value="put">
+	<input type="text" placeholder="Name" name="playlist[p_name]">
+
+	<input type="submit" value="Update">
+</form>
+
+<form action="/index" method="get">
+	<input type="submit" value="Back">
+</form>

@@ -4,6 +4,8 @@ class CreateSongs < ActiveRecord::Migration
 
 		create_table :songs do |t|
 
+			t.integer :user_id, index: true, foreign_key: true
+			t.integer :playlist_id, index: true, foreign_key: true
 			t.string :title
 			t.string :artist
 			t.string :duration

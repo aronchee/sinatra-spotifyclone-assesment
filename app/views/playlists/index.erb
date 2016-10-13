@@ -1,0 +1,38 @@
+<p> List of the Playlist </p>
+<!-- to show the current user playlist in index.erb -->
+<table>
+	<% current_user.playlists.each do |p| %> 
+<tr>
+	
+	<th><%=p.p_name%></th>
+	<td>
+	<form action="/playlists/<%=p.id%>/songs" method="get">
+		<input type="submit" value="View Songs">
+	</form>
+	</td>
+	<td>
+	<!-- delete the existing playlist -->
+	<form action="/playlists/<%=p.id%>" method="post">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete">
+	</form>
+	</td>
+	<td>
+	<!-- update/edit the existing playlist -->
+	<form action="/playlists/<%= p.id%>/edit" method="get">
+		<input type="submit" value="Edit">
+	</form>
+	</td>
+
+</tr>
+
+<%end%>
+</table>
+
+<!-- go back to the profile page -->
+<form action="/users/:id/profile" method="get">
+	<input type="submit" value="Back">
+</form>
+
+
+

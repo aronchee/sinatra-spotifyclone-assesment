@@ -1,0 +1,45 @@
+<p>List of Songs</p>
+
+<table>
+Playlist: <%= @playlist.p_name %>
+
+<% @songs.each do |x| %>
+
+	<tr>
+		<th>
+		<%=x.title%>
+		<%=x.artist%>
+		<%=x.duration%>
+		<%=x.album%>	
+		</th>
+		<td>
+			<form action="/playlists/<%=@playlist.id%>/songs/<%=x.id%>" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" value="Delete">
+			</form>
+		</td> 
+		<td>
+			<form action="/playlists/<%=@playlist.id%>/songs/<%=x.id%>/edit" method="get">
+				<input type="submit" value="Edit">
+			</form>
+		</td>
+	</tr>
+<%end%>
+</table>
+
+<center>
+<h1>Add a New Song for this Playlist: <%= @playlist.p_name %></h1>
+
+<form action="/playlists/<%= @playlist.id %>/songs" method="post">
+	<input type="text" placeholder="Song Title" name="song[title]"><br>
+	<input type="text" placeholder="Artist Name" name="song[artist]"><br>
+	<input type="text" placeholder="Duration" name="song[duration]"><br>
+	<input type="text" placeholder="Album Name" name="song[album]"><br>
+	<input type="submit" value="Add">
+</form>
+
+<%= @msg1 %>
+
+<form action="/index" method="get">
+	<input type="submit" value="Back">
+</form>
