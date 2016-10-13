@@ -23,11 +23,13 @@ end
 
 # end
 
+#to get the particular playlist to edit
 get '/playlists/:playlist_id/edit' do
 	@playlist = Playlist.find(params[:playlist_id])
 	erb :"playlists/edit"		
 end
 
+#edit the particular playlist
 put '/playlists/:playlist_id' do
 	# byebug
 	@playlist = Playlist.find(params[:playlist_id])
